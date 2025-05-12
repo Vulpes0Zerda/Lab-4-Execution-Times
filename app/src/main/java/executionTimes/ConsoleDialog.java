@@ -1,10 +1,10 @@
 package executionTimes;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class ConsoleDialog {
   private Scanner scanner;
-  private Thread dialogThread;
   private volatile int answer;
 
   public ConsoleDialog(){
@@ -12,7 +12,6 @@ public class ConsoleDialog {
   }
 
   public void initiateDialog(){
-    dialogThread = new Thread(()->{
       boolean validInput = false;
       
       while(!validInput){
@@ -24,14 +23,13 @@ public class ConsoleDialog {
           System.err.println("Your input is not a valid Number.");
           System.err.println(e.getStackTrace());
           System.out.println();
+        } catch (NoSuchElementException e){
+          
         }
       }
-    });
-    	
   }
 
-  public int awaitAnswer() throws InterruptedException{
-    dialogThread.join();
+  public int getInput() throws InterruptedException{
     return answer;
   }
 }

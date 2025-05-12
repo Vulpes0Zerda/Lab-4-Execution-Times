@@ -1,24 +1,25 @@
 
 package executionTimes;
 
+
 public class App {
     private ConsoleDialog activeDialog;
     private int number;
 
     public App(){
         this.activeDialog = new ConsoleDialog();
-        run();
+        sequence();
     }
 
-    public void run(){
+    public void sequence(){
         activeDialog = new ConsoleDialog();
-        // makes a pre-defined Dialog that runs in a Thread will re-syncronize when awaitAnswer is called.
+        // makes a pre-defined Dialog that hides a lot of user input handling
         activeDialog.initiateDialog();
         try {
-            // waits for the Thread to finish and returns the int
+            // returns the int
             // enter the code to the prime checker (pref a class) here
             // you can also just use awaitAnswer as a variable
-            number = activeDialog.awaitAnswer();
+            number = activeDialog.getInput();
         } catch (InterruptedException e) {
             System.err.println("The Thread was interrupted.");
             System.err.println(e.getStackTrace());

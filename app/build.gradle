@@ -42,3 +42,7 @@ application {
     // Define the main class for the application.
     mainClass = 'executionTimes.App'
 }
+
+run {
+    standardInput = System.in
+}

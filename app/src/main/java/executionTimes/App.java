@@ -8,6 +8,7 @@ public class App {
 
     public App(){
         this.activeDialog = new ConsoleDialog();
+        new ExecutionTimeSequence();
         sequence();
 
     }

@@ -6,12 +6,14 @@ import java.util.function.Function;
 
 public class ExecutionTimeTester {
     private long time;
-    private int sum = 0;
-    private int n = 1000000;
+    private long sum = 0;
+    private long n = 1000000;
 
-    public ExecutionTimeTester(int n){
+
+    public ExecutionTimeTester(long n){
         this.n = n;
     }
+
         
     private void startTimeMeasurement(){
         time = System.nanoTime();
@@ -33,11 +35,11 @@ public class ExecutionTimeTester {
      * @param    function  a function that takes an integer and runs itself for that number of times and returns an int of its steps
      * @return             the time measured in ms (2 decimal places) as a float
      */
-    public float measureFunctionTime (Function<Integer, Integer> func) {
+    public float measureFunctionTime (Function<Long, Long> function) {
         sum = 0;
         startTimeMeasurement();
         try {
-            sum = func.apply(n);
+            sum = function.apply(n);
         } catch (Exception e) {
             System.err.println("Function was not able to execute correctly");
             System.err.println(e.getStackTrace());
@@ -45,7 +47,7 @@ public class ExecutionTimeTester {
         return (float) (Math.round(stopTimeMeasurement()/10000))/100;
     }
 
-    public int getSteps(){
+    public long getSteps(){
         return sum;
     }
 

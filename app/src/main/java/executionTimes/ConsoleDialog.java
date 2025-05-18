@@ -1,6 +1,5 @@
 package executionTimes;
 
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class ConsoleDialog {
@@ -23,13 +22,11 @@ public class ConsoleDialog {
           System.err.println("Your input is not a valid Number.");
           System.err.println(e.getStackTrace());
           System.out.println();
-        } catch (NoSuchElementException e){
-          
         }
       }
   }
 
-  public int getInput() throws InterruptedException{
+  public int getInput(){
     return answer;
   }
 }

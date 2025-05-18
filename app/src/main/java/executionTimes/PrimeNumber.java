@@ -1,6 +1,8 @@
+package executionTimes;
+
 import java.util.Random;
 
-public class PrimeNum {
+public class PrimeNumber {
     public static boolean isPrime(long n) {
         //if n is equal to 0 and 1
         if (n == 0 || n == 1)
@@ -43,7 +45,6 @@ public class PrimeNum {
 
         while (count2 < limit) {
             long n2 = 549755813888L + random.nextLong(549755813888L);//between 2^39 -2^40
-            ;
             isPrime(n2);
             count2++;
         }

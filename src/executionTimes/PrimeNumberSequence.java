@@ -23,7 +23,8 @@ public class PrimeNumberSequence {
   
   /**
    * Runs a PrimeNumber.isPrime() check on random numbers within bound n times
-   * @param n
+   * @param n the number of times a new random number is checked with isPrime()
+   * @return the amount of steps the loop ran
    */
   public long runRandomPrimeNumberCheck (long n, long lowerBound){
     long sum = 0;
